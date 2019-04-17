@@ -28,13 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lblTxt = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblTxt
+            // 
+            this.lblTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTxt.AutoEllipsis = true;
+            this.lblTxt.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTxt.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTxt.Location = new System.Drawing.Point(0, 136);
+            this.lblTxt.Name = "lblTxt";
+            this.lblTxt.Padding = new System.Windows.Forms.Padding(25);
+            this.lblTxt.Size = new System.Drawing.Size(393, 134);
+            this.lblTxt.TabIndex = 0;
+            this.lblTxt.Text = "Historia";
+            this.lblTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(390, 392);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblTxt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblTxt;
     }
 }
 
