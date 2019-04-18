@@ -36,16 +36,15 @@
             this.lblTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTxt.AutoEllipsis = true;
             this.lblTxt.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTxt.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTxt.Location = new System.Drawing.Point(0, 136);
+            this.lblTxt.Location = new System.Drawing.Point(12, 155);
             this.lblTxt.Name = "lblTxt";
-            this.lblTxt.Padding = new System.Windows.Forms.Padding(25);
-            this.lblTxt.Size = new System.Drawing.Size(393, 134);
+            this.lblTxt.Padding = new System.Windows.Forms.Padding(5, 15, 5, 15);
+            this.lblTxt.Size = new System.Drawing.Size(366, 84);
             this.lblTxt.TabIndex = 0;
             this.lblTxt.Text = "Historia";
-            this.lblTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTxt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 

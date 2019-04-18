@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Media;
 
 namespace Prototype
 {
@@ -18,14 +20,28 @@ namespace Prototype
         public bool IsActive { get; set; }
         public string Txt { get; set; }
         public int Iterator { get; set; } = 0;
-        public int Delay = 200;
+        public int Delay = 170;
         private List<string> sub;
+        private int dot = 500;
+        private int comma = 200;
+
 
         public Form1()
         {
 
+            try
+            {   // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader("text.txt", Encoding.Default))
+                {
+                    // Read the stream to a string, and write the string to the console.
+                    var tt = sr.ReadToEnd();
+                    this.Txt = tt.Replace("\n", " ");
+                }
+            }
+            catch { }
+
             InitializeComponent();
-            Txt = "História é a ciência que estuda o ser humano e sua ação no tempo e no espaço concomitantemente à análise de processos e eventos ocorridos no passado. O termo \"História\" também pode significar toda a informação do passado arquivada em todas as línguas por todo o mundo, por intermédio de registos históricos";
+
             BackColor = Color.FromArgb(45, 45, 45);
             lblTxt.TextAlign = ContentAlignment.BottomCenter;
             IsActive = true;
@@ -41,9 +57,19 @@ namespace Prototype
             {
                 if (IsActive)
                 {
+
                     lblTxt.Text = sub[i];
                     await Task.Delay(Delay);
                     Iterator++;
+
+                    if (sub[i].Contains(","))
+                    {
+                        await Task.Delay(comma);
+                    }
+                    if (sub[i].Contains(".") || sub[i].Contains("-") || sub[i].Contains("!") || sub[i].Contains("?") || sub[i].Contains(":"))
+                    {
+                        await Task.Delay(dot);
+                    }
                 }
                 else
                 {
@@ -57,16 +83,17 @@ namespace Prototype
         {
             if (e.KeyCode == Keys.Escape)
                 this.Close();
+
             if (e.KeyCode == Keys.Space)
             {
                 IsActive = IsActive ? false : true;
-                
+
                 Start();
             }
             if (e.KeyCode == Keys.Left)
             {
                 IsActive = false;
-                if (Iterator > 0 )
+                if (Iterator > 0)
                 {
                     Iterator--;
                     lblTxt.Text = sub[Iterator];
@@ -82,23 +109,14 @@ namespace Prototype
                 }
             }
 
-            if (e.KeyCode == Keys.Up)
-            {
-                Delay += 20;
-            }
-            if (e.KeyCode == Keys.Up)
-            {
-                Delay -= 20;
-            }
-            if (e.KeyCode == Keys.Return)
-            {
-                Delay = 200;
-            }
+
             if (e.KeyCode == Keys.Back)
             {
                 IsActive = false;
                 Iterator = 0;
                 await Task.Delay(1000);
+                IsActive = true;
+                Start();
             }
         }
     }
